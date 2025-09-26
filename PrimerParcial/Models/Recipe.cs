@@ -4,7 +4,7 @@ namespace PrimerParcial.Models
 {
     public class Recipe
     {
-        // habia 4 errores y creando el archivo Models/Recipe.cs se corrigieron creando lo necesario a este archivo, ya entra a la pagina
+        // Clave primaria (PK)
         public int Id { get; set; }
 
         [Required]
@@ -13,10 +13,9 @@ namespace PrimerParcial.Models
 
         [StringLength(1000)]
         public string? Description { get; set; }
-
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-
         public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
     }
 }

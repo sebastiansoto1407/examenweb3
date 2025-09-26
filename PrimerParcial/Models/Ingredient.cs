@@ -8,17 +8,15 @@ namespace PrimerParcial.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; } // Ejemplo: "Harina de Trigo"
+        [StringLength(100)]
+        public string Name { get; set; } = string.Empty; 
 
         [Required]
-        public string Quantity { get; set; } // Ejemplo: "2 tazas" o "500 gramos"
+        [StringLength(50)]
+        public string Quantity { get; set; } = string.Empty; 
 
-        // --- Relaciones de Entity Framework Core ---
-
-        // Clave Foránea (FK): Vincula este ingrediente a la receta
+        [Display(Name = "Recipe")]
         public int RecipeId { get; set; }
-
-        // Propiedad de Navegación: El lado 'uno'
-        public Recipe Recipe { get; set; }
+        public Recipe? Recipe { get; set; }
     }
 }

@@ -60,10 +60,15 @@ namespace PrimerParcial.Controllers
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
+
+                // opcional: mensaje de éxito
+                TempData["Ok"] = "Categoria creada correctamente.";
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
         }
+
+
 
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
